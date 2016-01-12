@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EE06B821C448D8500990D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B811C448D8500990D18 /* AppDelegate.swift */; };
-		0EE06B841C448D8500990D18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B831C448D8500990D18 /* ViewController.swift */; };
-		0EE06B871C448D8500990D18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B851C448D8500990D18 /* Main.storyboard */; };
+		0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B811C448D8500990D18 /* GPAppDelegate.swift */; };
+		0EE06B841C448D8500990D18 /* GPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B831C448D8500990D18 /* GPViewController.swift */; };
+		0EE06B871C448D8500990D18 /* GPMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B851C448D8500990D18 /* GPMain.storyboard */; };
 		0EE06B8A1C448D8500990D18 /* gamepoll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B881C448D8500990D18 /* gamepoll.xcdatamodeld */; };
 		0EE06B8C1C448D8500990D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B8B1C448D8500990D18 /* Assets.xcassets */; };
 		0EE06B8F1C448D8500990D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */; };
 		0EE06B9A1C448D8500990D18 /* gamepollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B991C448D8500990D18 /* gamepollTests.swift */; };
 		0EE06BA51C448D8500990D18 /* gamepollUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06BA41C448D8500990D18 /* gamepollUITests.swift */; };
-		DE175A2024CCEB6E78A91820 /* Pods_gamepoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62A0D6C3CDD43E76DAC1A41 /* Pods_gamepoll.framework */; };
+		2D5F01D57C891735AED8AB54 /* Pods_gamepoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1208469332B589012EAAEE7 /* Pods_gamepoll.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07920DBC7CD8BEB9CDCD04CD /* Pods-gamepoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.release.xcconfig"; sourceTree = "<group>"; };
 		0EE06B7E1C448D8500990D18 /* gamepoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamepoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EE06B811C448D8500990D18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EE06B831C448D8500990D18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0EE06B861C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EE06B811C448D8500990D18 /* GPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAppDelegate.swift; sourceTree = "<group>"; };
+		0EE06B831C448D8500990D18 /* GPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPViewController.swift; sourceTree = "<group>"; };
+		0EE06B861C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GPMain.storyboard; sourceTree = "<group>"; };
 		0EE06B891C448D8500990D18 /* gamepoll.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gamepoll.xcdatamodel; sourceTree = "<group>"; };
 		0EE06B8B1C448D8500990D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EE06B8E1C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,9 +51,8 @@
 		0EE06BA01C448D8500990D18 /* gamepollUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gamepollUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE06BA41C448D8500990D18 /* gamepollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamepollUITests.swift; sourceTree = "<group>"; };
 		0EE06BA61C448D8500990D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5066ECEAAC0CC955F314151D /* Pods-gamepoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.debug.xcconfig"; sourceTree = "<group>"; };
-		50A710E28D7999D5ED2F3847 /* Pods-gamepoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.release.xcconfig"; sourceTree = "<group>"; };
-		D62A0D6C3CDD43E76DAC1A41 /* Pods_gamepoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamepoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		759B4ECE1B0B80128FC39DAB /* Pods-gamepoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.debug.xcconfig"; sourceTree = "<group>"; };
+		C1208469332B589012EAAEE7 /* Pods_gamepoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamepoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE175A2024CCEB6E78A91820 /* Pods_gamepoll.framework in Frameworks */,
+				2D5F01D57C891735AED8AB54 /* Pods_gamepoll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +88,8 @@
 				0EE06B981C448D8500990D18 /* gamepollTests */,
 				0EE06BA31C448D8500990D18 /* gamepollUITests */,
 				0EE06B7F1C448D8500990D18 /* Products */,
-				7B96E7EC7B4D00BC06AE7C37 /* Pods */,
-				1A496A663423DFB2115BD47F /* Frameworks */,
+				423006242252D6071A7FAB0E /* Pods */,
+				DDC0C927D196A2FD89381CE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,9 +106,9 @@
 		0EE06B801C448D8500990D18 /* gamepoll */ = {
 			isa = PBXGroup;
 			children = (
-				0EE06B811C448D8500990D18 /* AppDelegate.swift */,
-				0EE06B831C448D8500990D18 /* ViewController.swift */,
-				0EE06B851C448D8500990D18 /* Main.storyboard */,
+				0EE06B811C448D8500990D18 /* GPAppDelegate.swift */,
+				0EE06B831C448D8500990D18 /* GPViewController.swift */,
+				0EE06B851C448D8500990D18 /* GPMain.storyboard */,
 				0EE06B8B1C448D8500990D18 /* Assets.xcassets */,
 				0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */,
 				0EE06B901C448D8500990D18 /* Info.plist */,
@@ -135,21 +135,21 @@
 			path = gamepollUITests;
 			sourceTree = "<group>";
 		};
-		1A496A663423DFB2115BD47F /* Frameworks */ = {
+		423006242252D6071A7FAB0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D62A0D6C3CDD43E76DAC1A41 /* Pods_gamepoll.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7B96E7EC7B4D00BC06AE7C37 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5066ECEAAC0CC955F314151D /* Pods-gamepoll.debug.xcconfig */,
-				50A710E28D7999D5ED2F3847 /* Pods-gamepoll.release.xcconfig */,
+				759B4ECE1B0B80128FC39DAB /* Pods-gamepoll.debug.xcconfig */,
+				07920DBC7CD8BEB9CDCD04CD /* Pods-gamepoll.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DDC0C927D196A2FD89381CE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1208469332B589012EAAEE7 /* Pods_gamepoll.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,12 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EE06BA91C448D8500990D18 /* Build configuration list for PBXNativeTarget "gamepoll" */;
 			buildPhases = (
-				265A99DA467216B12C1EF619 /* Check Pods Manifest.lock */,
+				B4CDCAD99DCF8BDC1226F4C2 /* Check Pods Manifest.lock */,
 				0EE06B7A1C448D8500990D18 /* Sources */,
 				0EE06B7B1C448D8500990D18 /* Frameworks */,
 				0EE06B7C1C448D8500990D18 /* Resources */,
-				D0B31CB1E96CBF6CFE26E636 /* Embed Pods Frameworks */,
-				BEA5CAF37A431F30046BBBA8 /* Copy Pods Resources */,
+				09A49A91C0A3A0C01B6721FC /* Embed Pods Frameworks */,
+				8F972E6C6FD3E4D21CD92885 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,7 +261,7 @@
 			files = (
 				0EE06B8F1C448D8500990D18 /* LaunchScreen.storyboard in Resources */,
 				0EE06B8C1C448D8500990D18 /* Assets.xcassets in Resources */,
-				0EE06B871C448D8500990D18 /* Main.storyboard in Resources */,
+				0EE06B871C448D8500990D18 /* GPMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,37 +282,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		265A99DA467216B12C1EF619 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BEA5CAF37A431F30046BBBA8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0B31CB1E96CBF6CFE26E636 /* Embed Pods Frameworks */ = {
+		09A49A91C0A3A0C01B6721FC /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,6 +297,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8F972E6C6FD3E4D21CD92885 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4CDCAD99DCF8BDC1226F4C2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -334,9 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EE06B841C448D8500990D18 /* ViewController.swift in Sources */,
+				0EE06B841C448D8500990D18 /* GPViewController.swift in Sources */,
 				0EE06B8A1C448D8500990D18 /* gamepoll.xcdatamodeld in Sources */,
-				0EE06B821C448D8500990D18 /* AppDelegate.swift in Sources */,
+				0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,12 +372,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EE06B851C448D8500990D18 /* Main.storyboard */ = {
+		0EE06B851C448D8500990D18 /* GPMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0EE06B861C448D8500990D18 /* Base */,
 			);
-			name = Main.storyboard;
+			name = GPMain.storyboard;
 			sourceTree = "<group>";
 		};
 		0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */ = {
@@ -476,7 +476,7 @@
 		};
 		0EE06BAA1C448D8500990D18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5066ECEAAC0CC955F314151D /* Pods-gamepoll.debug.xcconfig */;
+			baseConfigurationReference = 759B4ECE1B0B80128FC39DAB /* Pods-gamepoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = gamepoll/Info.plist;
@@ -489,7 +489,7 @@
 		};
 		0EE06BAB1C448D8500990D18 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A710E28D7999D5ED2F3847 /* Pods-gamepoll.release.xcconfig */;
+			baseConfigurationReference = 07920DBC7CD8BEB9CDCD04CD /* Pods-gamepoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = gamepoll/Info.plist;

@@ -85,9 +85,15 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gamepoll/Alamofire.framework"
+  install_framework "Pods-gamepoll/Bolts.framework"
+  install_framework "Pods-gamepoll/ReactiveCocoa.framework"
+  install_framework "Pods-gamepoll/Result.framework"
   install_framework "Pods-gamepoll/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gamepoll/Alamofire.framework"
+  install_framework "Pods-gamepoll/Bolts.framework"
+  install_framework "Pods-gamepoll/ReactiveCocoa.framework"
+  install_framework "Pods-gamepoll/Result.framework"
   install_framework "Pods-gamepoll/SwiftyJSON.framework"
 fi

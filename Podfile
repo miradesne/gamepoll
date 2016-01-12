@@ -4,4 +4,6 @@ use_frameworks!
 target 'gamepoll' do
   pod 'Alamofire', '~> 3.1'
   pod 'SwiftyJSON', '~> 2.3'
+  pod 'ReactiveCocoa', '4.0.4-alpha-4'
+  pod 'Bolts', '~> 1.5'
 end
