@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gamepoll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GPViewController" customModule="gamepoll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,12 +24,36 @@
                                     <constraint firstAttribute="height" constant="503" id="bKQ-th-KuH"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="157" id="sx5-Tg-trT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GPQuestionTableViewCell" rowHeight="157" id="sx5-Tg-trT" customClass="GPQuestionTableViewCell" customModule="gamepoll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sx5-Tg-trT" id="8jy-3n-VZ8">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you played dragon age?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-u0-8tl">
+                                                    <rect key="frame" x="187" y="15" width="226" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zct-mr-9Uv">
+                                                    <rect key="frame" x="157" y="91" width="30" height="30"/>
+                                                    <state key="normal" title="yes"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O88-hd-O5f">
+                                                    <rect key="frame" x="413" y="91" width="30" height="30"/>
+                                                    <state key="normal" title="no"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="H9E-u0-8tl" firstAttribute="top" secondItem="8jy-3n-VZ8" secondAttribute="topMargin" constant="7" id="Hwq-RT-kmD"/>
+                                                <constraint firstItem="O88-hd-O5f" firstAttribute="centerY" secondItem="Zct-mr-9Uv" secondAttribute="centerY" id="WmQ-NI-Fn4"/>
+                                                <constraint firstItem="O88-hd-O5f" firstAttribute="leading" secondItem="H9E-u0-8tl" secondAttribute="trailing" id="bAp-Uo-ajN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Zct-mr-9Uv" secondAttribute="bottom" constant="27" id="rif-UH-YX0"/>
+                                                <constraint firstItem="H9E-u0-8tl" firstAttribute="leading" secondItem="Zct-mr-9Uv" secondAttribute="trailing" id="sXV-OD-pqj"/>
+                                                <constraint firstItem="H9E-u0-8tl" firstAttribute="centerX" secondItem="8jy-3n-VZ8" secondAttribute="centerX" id="vy0-12-ij1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ln0-JH-Hly">
@@ -49,6 +73,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Inc-dn-4BV"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZFF-7d-UqI"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-BG-mc5">
                                 <rect key="frame" x="257" y="550" width="86" height="30"/>
@@ -67,6 +95,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4xR-Ct-lC7" secondAttribute="trailing" constant="-20" id="jtg-2p-46e"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeFeedsTableView" destination="4xR-Ct-lC7" id="vCO-x8-Vtu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
