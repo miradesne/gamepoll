@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RC2-P5-TFv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RC2-P5-TFv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,20 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmo-5o-ZPL">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmo-5o-ZPL">
                                 <rect key="frame" x="25" y="20" width="37" height="30"/>
                                 <state key="normal" title="close"/>
                                 <connections>
                                     <action selector="dismissSelf:" destination="RC2-P5-TFv" eventType="touchUpInside" id="Lkh-TF-rJu"/>
                                 </connections>
                             </button>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-Jz-cHu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
+                                <subviews>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fSt-97-rjM" customClass="RadarChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="47" width="600" height="535"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="535" id="Bsl-yb-W47"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fSt-97-rjM" secondAttribute="bottom" constant="818" id="6fb-aE-hiv"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" constant="47" id="RLl-lO-QTC"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leadingMargin" id="fel-20-syf"/>
+                                    <constraint firstAttribute="trailing" secondItem="fSt-97-rjM" secondAttribute="trailing" constant="-8" id="hAe-kS-aWl"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="width" secondItem="W3T-Jz-cHu" secondAttribute="width" id="lUL-4c-mVv"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Lmo-5o-ZPL" firstAttribute="top" secondItem="Lsw-DO-oYd" secondAttribute="bottom" id="QEr-KX-BgH"/>
-                            <constraint firstItem="Lmo-5o-ZPL" firstAttribute="leading" secondItem="kDu-xV-ZUR" secondAttribute="leadingMargin" constant="5" id="S5U-YO-KLi"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="leading" secondItem="kDu-xV-ZUR" secondAttribute="leading" id="3E3-BA-Wb1"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="width" secondItem="kDu-xV-ZUR" secondAttribute="width" id="D5z-Pp-TxZ"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="top" secondItem="Lsw-DO-oYd" secondAttribute="bottom" constant="-20" id="Sfu-c3-fQW"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="height" secondItem="kDu-xV-ZUR" secondAttribute="height" constant="800" id="kia-Iq-E03"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="radarChartView" destination="fSt-97-rjM" id="UT0-ij-bZ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gc3-BG-xpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
