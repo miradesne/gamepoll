@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC6710E1C4B4722004E4558 /* GPFeedTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6710D1C4B4721004E4558 /* GPFeedTableViewDataSource.swift */; };
 		0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B811C448D8500990D18 /* GPAppDelegate.swift */; };
 		0EE06B841C448D8500990D18 /* GPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B831C448D8500990D18 /* GPViewController.swift */; };
 		0EE06B871C448D8500990D18 /* GPMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B851C448D8500990D18 /* GPMain.storyboard */; };
@@ -19,6 +20,7 @@
 		0EE06BB71C46172300990D18 /* GPGameProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06BB61C46172300990D18 /* GPGameProfileViewController.swift */; };
 		0EE06BBC1C461F2E00990D18 /* GPQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06BBB1C461F2E00990D18 /* GPQuestionTableViewCell.swift */; };
 		0EE06BBF1C46206500990D18 /* GPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06BBE1C46206500990D18 /* GPTableViewCell.swift */; };
+		0EE06BC11C48CF7900990D18 /* GPAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06BC01C48CF7900990D18 /* GPAnswerButton.swift */; };
 		2D5F01D57C891735AED8AB54 /* Pods_gamepoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1208469332B589012EAAEE7 /* Pods_gamepoll.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		07920DBC7CD8BEB9CDCD04CD /* Pods-gamepoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.release.xcconfig"; sourceTree = "<group>"; };
+		0EC6710D1C4B4721004E4558 /* GPFeedTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPFeedTableViewDataSource.swift; sourceTree = "<group>"; };
 		0EE06B7E1C448D8500990D18 /* gamepoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamepoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE06B811C448D8500990D18 /* GPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAppDelegate.swift; sourceTree = "<group>"; };
 		0EE06B831C448D8500990D18 /* GPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		0EE06BB61C46172300990D18 /* GPGameProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPGameProfileViewController.swift; sourceTree = "<group>"; };
 		0EE06BBB1C461F2E00990D18 /* GPQuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		0EE06BBE1C46206500990D18 /* GPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTableViewCell.swift; sourceTree = "<group>"; };
+		0EE06BC01C48CF7900990D18 /* GPAnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAnswerButton.swift; sourceTree = "<group>"; };
 		759B4ECE1B0B80128FC39DAB /* Pods-gamepoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.debug.xcconfig"; sourceTree = "<group>"; };
 		C1208469332B589012EAAEE7 /* Pods_gamepoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gamepoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EC6710F1C4B4734004E4558 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0EC6710D1C4B4721004E4558 /* GPFeedTableViewDataSource.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		0EE06B751C448D8500990D18 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE06B811C448D8500990D18 /* GPAppDelegate.swift */,
+				0EC6710F1C4B4734004E4558 /* Data */,
 				0EE06BB81C461CAF00990D18 /* ViewControllers */,
 				0EE06BBD1C461F3900990D18 /* Views */,
 				0EE06BB91C461CC400990D18 /* Storyboards */,
@@ -175,6 +188,7 @@
 			children = (
 				0EE06BBE1C46206500990D18 /* GPTableViewCell.swift */,
 				0EE06BBB1C461F2E00990D18 /* GPQuestionTableViewCell.swift */,
+				0EE06BC01C48CF7900990D18 /* GPAnswerButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -383,6 +397,8 @@
 				0EE06B841C448D8500990D18 /* GPViewController.swift in Sources */,
 				0EE06BBC1C461F2E00990D18 /* GPQuestionTableViewCell.swift in Sources */,
 				0EE06B8A1C448D8500990D18 /* gamepoll.xcdatamodeld in Sources */,
+				0EC6710E1C4B4722004E4558 /* GPFeedTableViewDataSource.swift in Sources */,
+				0EE06BC11C48CF7900990D18 /* GPAnswerButton.swift in Sources */,
 				0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */,
 				0EE06BBF1C46206500990D18 /* GPTableViewCell.swift in Sources */,
 				0EE06BB71C46172300990D18 /* GPGameProfileViewController.swift in Sources */,

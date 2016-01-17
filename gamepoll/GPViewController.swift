@@ -27,12 +27,15 @@ class GPViewController: UIViewController,UITableViewDataSource,UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:GPQuestionTableViewCell = tableView.dequeueReusableCellWithIdentifier(GPQuestionTableViewCell.reuseidentifier()) as! GPQuestionTableViewCell
+        let sampleQuestionType = GPQuestionTableViewCell.QuestionType.InitialQuestion
+        let cell:GPQuestionTableViewCell = tableView.dequeueReusableCellWithIdentifier(sampleQuestionType.reuseIdentifier()) as! GPQuestionTableViewCell
+        cell.questionType = sampleQuestionType
+        cell.extraSetup()
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 157
+        return 250
     }
 }
 
