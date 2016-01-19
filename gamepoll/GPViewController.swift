@@ -8,13 +8,14 @@
 
 import UIKit
 
-class GPViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class GPViewController: UIViewController {
 
     @IBOutlet weak var homeFeedsTableView: UITableView!
+    var feedTableDataSource: GPFeedTableViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.feedTableDataSource = GPFeedTableViewDataSource(tableView: self.homeFeedsTableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,20 +23,5 @@ class GPViewController: UIViewController,UITableViewDataSource,UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let sampleQuestionType = GPQuestionTableViewCell.QuestionType.InitialQuestion
-        let cell:GPQuestionTableViewCell = tableView.dequeueReusableCellWithIdentifier(sampleQuestionType.reuseIdentifier()) as! GPQuestionTableViewCell
-        cell.questionType = sampleQuestionType
-        cell.extraSetup()
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250
-    }
 }
 

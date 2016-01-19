@@ -11,14 +11,24 @@ import Charts
 import Alamofire
 import ReactiveCocoa
 
-class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
+protocol GPQuestionTableViewCellDelegate {
+    func cell(cell:GPQuestionTableViewCell, answeredIndex:Int)
+}
+
+class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
 
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var pollResultsView: PieChartView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerOne: GPAnswerButton!
+    @IBOutlet weak var answerTwo: GPAnswerButton!
+    @IBOutlet weak var answerThree: GPAnswerButton!
+    @IBOutlet weak var answerFour: GPAnswerButton!
     
     var questionType: QuestionType!
     var backgroundImageUrl: String?
+    var delegate: GPQuestionTableViewCellDelegate?
     
     enum QuestionType: Int {
         
@@ -39,7 +49,7 @@ class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
             case .InitialQuestion:
                 return "GPInitialQuestionTableViewCell"
             case .BinaryPoll:
-                return "GPBinaryQuestionTableViewCell"
+                return "GPBinaryPollTableViewCell"
             case .MultipleChoice:
                 return "GPMultipleChoiceTableViewCell"
             }
@@ -62,27 +72,32 @@ class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
         self.innerView.layer.cornerRadius = 5
     }
     
-    func extraSetup() {
+    func extraSetup(data:Dictionary<String, AnyObject?>) {
+        guard let questionString = data["Question"] as? String else {
+            print("data is missing question! failed.")
+            return
+        }
+        self.questionLabel.text = questionString
         switch self.questionType! {
         case .InitialQuestion:
-            self.setupInitialQuestionUI()
+            self.setupInitialQuestionUI(data)
             break
         case .BinaryPoll:
-            self.setupBinaryPollUI()
+            self.setupBinaryPollUI(data)
             break
         case .MultipleChoice:
-            self.setupMultipleChoiceUI()
+            self.setupMultipleChoiceUI(data)
             break
         }
     }
     
-    func setupInitialQuestionUI() {
+    func setupInitialQuestionUI(data:Dictionary<String, AnyObject?>) {
         
     }
     
-    func setupBinaryPollUI() {
+    func setupBinaryPollUI(data:Dictionary<String, AnyObject?>) {
         self.pollResultsView.hidden = true
-        if let imageUrl = self.backgroundImageUrl {
+        if let imageUrl = data["imageUrl"] as? String {
             request(.GET, imageUrl)
             .responseData({ dataResponse in
                 guard let imageData = dataResponse.data else {
@@ -95,8 +110,27 @@ class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
         }
     }
     
-    func setupMultipleChoiceUI() {
-        
+    func setupMultipleChoiceUI(data:Dictionary<String, AnyObject?>) {
+        self.pollResultsView.hidden = true
+        guard let answerStrings = data["Choices"] as? [String] else {
+            print("error! no choices!!")
+            return
+        }
+        answerOne .setTitle(answerStrings[0], forState: UIControlState.Normal)
+        answerTwo .setTitle(answerStrings[1], forState: UIControlState.Normal)
+        answerThree .setTitle(answerStrings[2], forState: UIControlState.Normal)
+        answerFour .setTitle(answerStrings[3], forState: UIControlState.Normal)
+        if let imageUrl = data["imageUrl"] as? String {
+            request(.GET, imageUrl)
+                .responseData({ dataResponse in
+                    guard let imageData = dataResponse.data else {
+                        print("error! data is nil!")
+                        return
+                    }
+                    self.backgroundImageView.image = UIImage(data: imageData)
+                })
+            
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -105,6 +139,13 @@ class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
     }
 
     @IBAction func AnswerOne(sender: AnyObject) {
+        if let delegate = self.delegate {
+            delegate.cell(self, answeredIndex: 0)
+        }
+    }
+    
+    func showAnswerWithData() {
+        //TO DO: a graph with data in it.
         if self.questionType.showAnswer() {
             self.pollResultsView.hidden = false
             self.pollResultsView.delegate = self;
@@ -145,8 +186,6 @@ class GPQuestionTableViewCell: GPTableViewCell,ChartViewDelegate {
             l.yOffset = 0.0;
             
             self.pollResultsView.animate(xAxisDuration: 0.5)
-        } else {
-            // TODO: remove cell: delegate? reactive cocoa?
         }
     }
 }
