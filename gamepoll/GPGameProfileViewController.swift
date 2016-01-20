@@ -44,7 +44,7 @@ class GPGameProfileViewController: UIViewController {
             xAxisTraits.append(traits[i])
         }
         
-        let dataset: RadarChartDataSet = RadarChartDataSet(yVals: yAxisScores, label: "Game Profile")
+        let dataset: RadarChartDataSet = RadarChartDataSet(yVals: yAxisScores, label: "Game Overview")
         dataset.drawFilledEnabled = true
         dataset.lineWidth = 2.0
         dataset.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
@@ -53,6 +53,7 @@ class GPGameProfileViewController: UIViewController {
 
 
         // Configure Radar Chart
+        radarChartView.setDescriptionTextPosition(x: 100, y: 100)
         radarChartView.yAxis.customAxisMax = 5
         radarChartView.yAxis.customAxisMin = 0
         radarChartView.yAxis.startAtZeroEnabled = false

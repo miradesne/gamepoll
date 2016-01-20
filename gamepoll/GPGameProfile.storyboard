@@ -25,10 +25,10 @@
                                 </connections>
                             </button>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-Jz-cHu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1400"/>
+                                <rect key="frame" x="0.0" y="47" width="600" height="1353"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fSt-97-rjM" customClass="RadarChartView" customModule="Charts">
-                                        <rect key="frame" x="8" y="47" width="600" height="535"/>
+                                        <rect key="frame" x="8" y="0.0" width="600" height="535"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="535" id="Bsl-yb-W47"/>
@@ -37,7 +37,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="fSt-97-rjM" secondAttribute="bottom" constant="818" id="6fb-aE-hiv"/>
-                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" constant="47" id="RLl-lO-QTC"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" id="RLl-lO-QTC"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leadingMargin" id="fel-20-syf"/>
                                     <constraint firstAttribute="trailing" secondItem="fSt-97-rjM" secondAttribute="trailing" constant="-8" id="hAe-kS-aWl"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="width" secondItem="W3T-Jz-cHu" secondAttribute="width" id="lUL-4c-mVv"/>
@@ -48,8 +48,8 @@
                         <constraints>
                             <constraint firstItem="W3T-Jz-cHu" firstAttribute="leading" secondItem="kDu-xV-ZUR" secondAttribute="leading" id="3E3-BA-Wb1"/>
                             <constraint firstItem="W3T-Jz-cHu" firstAttribute="width" secondItem="kDu-xV-ZUR" secondAttribute="width" id="D5z-Pp-TxZ"/>
-                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="top" secondItem="Lsw-DO-oYd" secondAttribute="bottom" constant="-20" id="Sfu-c3-fQW"/>
-                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="height" secondItem="kDu-xV-ZUR" secondAttribute="height" constant="800" id="kia-Iq-E03"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="top" secondItem="Lsw-DO-oYd" secondAttribute="bottom" constant="27" id="Sfu-c3-fQW"/>
+                            <constraint firstItem="W3T-Jz-cHu" firstAttribute="height" secondItem="kDu-xV-ZUR" secondAttribute="height" constant="753" id="kia-Iq-E03"/>
                         </constraints>
                     </view>
                     <connections>
