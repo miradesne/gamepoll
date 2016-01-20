@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gamepoll/ReactiveCocoa.framework"
   install_framework "Pods-gamepoll/Result.framework"
   install_framework "Pods-gamepoll/SwiftyJSON.framework"
+  install_framework "Pods-gamepoll/UIColor_FlatColors.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gamepoll/Alamofire.framework"
@@ -98,4 +99,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gamepoll/ReactiveCocoa.framework"
   install_framework "Pods-gamepoll/Result.framework"
   install_framework "Pods-gamepoll/SwiftyJSON.framework"
+  install_framework "Pods-gamepoll/UIColor_FlatColors.framework"
 fi

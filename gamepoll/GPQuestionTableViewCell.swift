@@ -10,6 +10,7 @@ import UIKit
 import Charts
 import Alamofire
 import ReactiveCocoa
+import UIColor_FlatColors
 
 protocol GPQuestionTableViewCellDelegate {
     func cell(cell:GPQuestionTableViewCell, answeredIndex:Int)
@@ -172,18 +173,41 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             //        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:10.f],
             //        NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]
             //        } range:NSMakeRange(centerText.length - 19, 19)];
-            self.pollResultsView.centerText = "booo"
+            self.pollResultsView.centerText = "Poll Results"
             
             self.pollResultsView.drawHoleEnabled = true;
             self.pollResultsView.rotationAngle = 0.0;
             self.pollResultsView.rotationEnabled = true;
             self.pollResultsView.highlightPerTapEnabled = true;
             
+            var dataEntries: [ChartDataEntry] = []
+            
+            let dataPoints = ["no", "yes"]
+            let values = [20.0, 15.0]
+            
+            for i in 0..<dataPoints.count {
+                let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+                dataEntries.append(dataEntry)
+            }
+            
+            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
+            let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+            self.pollResultsView.data = pieChartData
+            
+            var colors: [UIColor] = []
+           
+            colors.append(UIColor.flatEmeraldColor())
+            colors.append(UIColor.flatNephritisColor())
+
+            pieChartDataSet.colors = colors
+            
             let l = self.pollResultsView.legend;
-            l.position = ChartLegend.ChartLegendPosition.RightOfChart;
-            l.xEntrySpace = 7.0;
-            l.yEntrySpace = 0.0;
-            l.yOffset = 0.0;
+            l.position = ChartLegend.ChartLegendPosition.RightOfChart
+            l.xEntrySpace = 7.0
+            l.yEntrySpace = 0.0
+            l.yOffset = 0.0
+            // I want to hide the label
+            l.enabled = false
             
             self.pollResultsView.animate(xAxisDuration: 0.5)
         }
