@@ -21,6 +21,8 @@ class GPGamerProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         radarChartView.noDataText = "no data"
+        //offscreen
+        radarChartView.setDescriptionTextPosition(x: 1000, y: 1000)
         traits = ["Graphics", "Story", "Sound", "Learning Curve", "Novelty"]
         let scores = [3.9, 4.0, 1.0, 3.5, 5.0]
         
@@ -44,17 +46,15 @@ class GPGamerProfileViewController: UIViewController {
             xAxisTraits.append(traits[i])
         }
         
-        let dataset: RadarChartDataSet = RadarChartDataSet(yVals: yAxisScores, label: "Game Overview")
+        let dataset: RadarChartDataSet = RadarChartDataSet(yVals: yAxisScores, label: "Traits")
         dataset.drawFilledEnabled = true
         dataset.lineWidth = 2.0
-        dataset.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
+        dataset.colors = [UIColor.flatGreenSeaColor()]
         dataset.setDrawHighlightIndicators(false)
         dataset.drawValuesEnabled = false
 
-
         // Configure Radar Chart
-        radarChartView.setDescriptionTextPosition(x: 100, y: 100)
-        radarChartView.yAxis.customAxisMax = 5
+        radarChartView.yAxis.customAxisMax = 5.0
         radarChartView.yAxis.customAxisMin = 0
         radarChartView.yAxis.startAtZeroEnabled = false
         radarChartView.yAxis.drawLabelsEnabled = false
@@ -62,6 +62,9 @@ class GPGamerProfileViewController: UIViewController {
 
         let data: RadarChartData = RadarChartData(xVals: xAxisTraits, dataSets: [dataset])
         radarChartView.data = data
+        
+        let bgColor = UIColor(red: 239.0/255.0, green: 239.0/255.0, blue: 244.0/255.0, alpha: 1)
+        radarChartView.backgroundColor = bgColor
     }
     
     /*
