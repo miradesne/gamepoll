@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Game Profile View Controller-->
+        <!--Gamer Profile View Controller-->
         <scene sceneID="1VG-Km-XdK">
             <objects>
-                <viewController id="RC2-P5-TFv" customClass="GPGameProfileViewController" customModule="gamepoll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RC2-P5-TFv" customClass="GPGamerProfileViewController" customModule="gamepoll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lsw-DO-oYd"/>
                         <viewControllerLayoutGuide type="bottom" id="3bc-qT-bmK"/>

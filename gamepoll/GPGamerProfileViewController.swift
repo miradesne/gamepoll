@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class GPGameProfileViewController: UIViewController {
+class GPGamerProfileViewController: UIViewController {
     var traits: [String]!
     
     
