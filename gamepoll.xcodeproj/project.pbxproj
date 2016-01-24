@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7E24F81C557A4700E234A3 /* UIColor+gamepoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E24F71C557A4700E234A3 /* UIColor+gamepoll.swift */; };
 		0EC6710E1C4B4722004E4558 /* GPFeedTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6710D1C4B4721004E4558 /* GPFeedTableViewDataSource.swift */; };
 		0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B811C448D8500990D18 /* GPAppDelegate.swift */; };
 		0EE06B841C448D8500990D18 /* GPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B831C448D8500990D18 /* GPViewController.swift */; };
-		0EE06B871C448D8500990D18 /* GPMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B851C448D8500990D18 /* GPMain.storyboard */; };
+		0EE06B871C448D8500990D18 /* GPFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B851C448D8500990D18 /* GPFeed.storyboard */; };
 		0EE06B8A1C448D8500990D18 /* gamepoll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EE06B881C448D8500990D18 /* gamepoll.xcdatamodeld */; };
 		0EE06B8C1C448D8500990D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B8B1C448D8500990D18 /* Assets.xcassets */; };
 		0EE06B8F1C448D8500990D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */; };
@@ -43,11 +44,12 @@
 
 /* Begin PBXFileReference section */
 		07920DBC7CD8BEB9CDCD04CD /* Pods-gamepoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gamepoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-gamepoll/Pods-gamepoll.release.xcconfig"; sourceTree = "<group>"; };
+		0E7E24F71C557A4700E234A3 /* UIColor+gamepoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+gamepoll.swift"; sourceTree = "<group>"; };
 		0EC6710D1C4B4721004E4558 /* GPFeedTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPFeedTableViewDataSource.swift; sourceTree = "<group>"; };
 		0EE06B7E1C448D8500990D18 /* gamepoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamepoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE06B811C448D8500990D18 /* GPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAppDelegate.swift; sourceTree = "<group>"; };
 		0EE06B831C448D8500990D18 /* GPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPViewController.swift; sourceTree = "<group>"; };
-		0EE06B861C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GPMain.storyboard; sourceTree = "<group>"; };
+		0EE06B861C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GPFeed.storyboard; sourceTree = "<group>"; };
 		0EE06B891C448D8500990D18 /* gamepoll.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gamepoll.xcdatamodel; sourceTree = "<group>"; };
 		0EE06B8B1C448D8500990D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EE06B8E1C448D8500990D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */,
-				0EE06B851C448D8500990D18 /* GPMain.storyboard */,
+				0EE06B851C448D8500990D18 /* GPFeed.storyboard */,
 				0EE06BB21C4614D800990D18 /* GPGamerProfile.storyboard */,
 			);
 			name = Storyboards;
@@ -178,6 +180,7 @@
 		0EE06BBA1C461CD900990D18 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E7E24F71C557A4700E234A3 /* UIColor+gamepoll.swift */,
 				0EE06B901C448D8500990D18 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -322,7 +325,7 @@
 				0EE06B8F1C448D8500990D18 /* LaunchScreen.storyboard in Resources */,
 				0EE06BB31C4614D800990D18 /* GPGamerProfile.storyboard in Resources */,
 				0EE06B8C1C448D8500990D18 /* Assets.xcassets in Resources */,
-				0EE06B871C448D8500990D18 /* GPMain.storyboard in Resources */,
+				0EE06B871C448D8500990D18 /* GPFeed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +402,7 @@
 				0EE06BBC1C461F2E00990D18 /* GPQuestionTableViewCell.swift in Sources */,
 				0EE06B8A1C448D8500990D18 /* gamepoll.xcdatamodeld in Sources */,
 				0EC6710E1C4B4722004E4558 /* GPFeedTableViewDataSource.swift in Sources */,
+				0E7E24F81C557A4700E234A3 /* UIColor+gamepoll.swift in Sources */,
 				0EE06BC11C48CF7900990D18 /* GPAnswerButton.swift in Sources */,
 				0EE06B821C448D8500990D18 /* GPAppDelegate.swift in Sources */,
 				0EE06BBF1C46206500990D18 /* GPTableViewCell.swift in Sources */,
@@ -438,12 +442,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EE06B851C448D8500990D18 /* GPMain.storyboard */ = {
+		0EE06B851C448D8500990D18 /* GPFeed.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0EE06B861C448D8500990D18 /* Base */,
 			);
-			name = GPMain.storyboard;
+			name = GPFeed.storyboard;
 			sourceTree = "<group>";
 		};
 		0EE06B8D1C448D8500990D18 /* LaunchScreen.storyboard */ = {
