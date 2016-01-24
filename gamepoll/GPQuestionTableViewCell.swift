@@ -70,7 +70,13 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         self.contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.contentView.layer.shadowOpacity = 1
         self.contentView.layer.shadowRadius = 1
-        self.innerView.layer.cornerRadius = 5
+        self.innerView.layer.cornerRadius = 8
+        if (self.backgroundImageView == nil) || (self.backgroundImageView.image == nil) {
+            self.questionLabel.textColor = UIColor.gmpDarkTextColor()
+        } else {
+            self.questionLabel.textColor = UIColor.gmpWhiteTextColor()
+        }
+        self.questionLabel.font = UIFont.init(name: "SanFranciscoDisplay-Thin", size: 20.0)
     }
     
     func extraSetup(data:Dictionary<String, AnyObject?>) {
