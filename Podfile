@@ -8,4 +8,5 @@ target 'gamepoll' do
   pod 'Bolts', '~> 1.5'
   pod 'Charts', '~> 2.1.6'
   pod 'UIColor+FlatColors'
+  pod 'Parse'
 end

@@ -7,6 +7,8 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.6.0)
   - Charts (2.1.6)
+  - Parse (1.12.0):
+    - Bolts/Tasks (~> 1.5)
   - ReactiveCocoa (4.0.4-alpha-4):
     - ReactiveCocoa/UI (= 4.0.4-alpha-4)
     - Result (~> 1.0)
@@ -26,6 +28,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.1)
   - Bolts (~> 1.5)
   - Charts (~> 2.1.6)
+  - Parse
   - ReactiveCocoa (= 4.0.4-alpha-4)
   - SwiftyJSON (~> 2.3)
   - UIColor+FlatColors
@@ -34,6 +37,7 @@ SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
   Result: caef80340451e1f07492fa1e89117f83613bce24
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
