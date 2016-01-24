@@ -323,20 +323,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZFF-7d-UqI"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vS-BG-mc5">
-                                <rect key="frame" x="255" y="550" width="91" height="30"/>
-                                <state key="normal" title="gamer profile"/>
-                                <connections>
-                                    <segue destination="WwL-tf-RWF" kind="show" identifier="showGamerProfile" id="gUj-xP-Tud"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21568627655506134" green="0.21176470816135406" blue="0.21176470816135406" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4xR-Ct-lC7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0Hz-AA-Jca"/>
                             <constraint firstItem="4xR-Ct-lC7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="E9X-bE-ade"/>
-                            <constraint firstItem="6vS-BG-mc5" firstAttribute="top" secondItem="4xR-Ct-lC7" secondAttribute="bottom" constant="19" id="Job-Cg-0pe"/>
-                            <constraint firstItem="6vS-BG-mc5" firstAttribute="centerX" secondItem="4xR-Ct-lC7" secondAttribute="centerX" id="hnH-Cj-NUL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4xR-Ct-lC7" secondAttribute="trailing" constant="-20" id="jtg-2p-46e"/>
                         </constraints>
                     </view>
@@ -344,6 +335,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="homeFeedsTableView" destination="4xR-Ct-lC7" id="vCO-x8-Vtu"/>
+                        <segue destination="WwL-tf-RWF" kind="show" id="NR7-bL-ZCJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
