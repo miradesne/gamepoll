@@ -16,6 +16,9 @@ class GPViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.feedTableDataSource = GPFeedTableViewDataSource(tableView: self.homeFeedsTableView)
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "profileIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showGamerProfile")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "searchIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,5 +26,16 @@ class GPViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func setUpGenericUIForApp() {
+        UINavigationBar.appearance().barTintColor = UIColor.gmpBackgroundBlackColor()
+    }
+    
+    func showGamerProfile() {
+        self.performSegueWithIdentifier("showGamerProfile", sender: self)
+    }
 }
 
