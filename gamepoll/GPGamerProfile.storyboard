@@ -49,7 +49,7 @@
                                                     <constraint firstAttribute="width" constant="122" id="KHN-o7-wSE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.29019609093666077" green="0.29019609093666077" blue="0.29019609093666077" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -65,38 +65,70 @@
                                             <constraint firstItem="K3j-he-46i" firstAttribute="top" secondItem="7aa-Sz-kOk" secondAttribute="top" id="jIk-cv-315"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1632602" translatesAutoresizingMaskIntoConstraints="NO" id="jDx-1a-rik">
+                                        <rect key="frame" x="0.0" y="64" width="580" height="179"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="179" id="zvb-8f-IPn"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="maverickBadge19D5212404388D137F4Baa3Bf1727C68" translatesAutoresizingMaskIntoConstraints="NO" id="VOK-WX-hZn">
-                                        <rect key="frame" x="0.0" y="67" width="580" height="174"/>
+                                        <rect key="frame" x="157" y="67" width="266" height="174"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="266" id="U8Z-NA-b7E"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="U8Z-NA-b7E"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="centerX" secondItem="W3T-Jz-cHu" secondAttribute="centerX" id="1L3-cM-uK7"/>
                                     <constraint firstAttribute="bottom" secondItem="fSt-97-rjM" secondAttribute="bottom" constant="798" id="6fb-aE-hiv"/>
                                     <constraint firstAttribute="trailing" secondItem="fSt-97-rjM" secondAttribute="trailing" constant="-10" id="7gM-SM-Bt6"/>
-                                    <constraint firstAttribute="trailing" secondItem="VOK-WX-hZn" secondAttribute="trailing" id="AAT-iE-d4T"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerX" secondItem="jDx-1a-rik" secondAttribute="centerX" id="ANb-ux-7Ls"/>
+                                    <constraint firstItem="jDx-1a-rik" firstAttribute="top" secondItem="7aa-Sz-kOk" secondAttribute="bottom" id="BYZ-GE-kKj"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerX" secondItem="W3T-Jz-cHu" secondAttribute="centerX" id="Bat-b8-hFP"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerX" secondItem="W3T-Jz-cHu" secondAttribute="centerX" id="Diu-kL-4jh"/>
                                     <constraint firstItem="7aa-Sz-kOk" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leading" constant="-10" id="IMX-tC-Ej5"/>
-                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="VOK-WX-hZn" secondAttribute="bottom" constant="1" id="IlO-5N-6pt"/>
-                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leading" id="PoW-wo-yNj"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerY" secondItem="W3T-Jz-cHu" secondAttribute="centerY" id="LVd-hY-9eM"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" constant="242" id="NTT-cB-J3L"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" constant="242" id="RLl-lO-QTC"/>
                                     <constraint firstItem="7aa-Sz-kOk" firstAttribute="width" secondItem="W3T-Jz-cHu" secondAttribute="width" id="SrX-mo-mQV"/>
                                     <constraint firstAttribute="trailing" secondItem="fSt-97-rjM" secondAttribute="trailing" constant="-10" id="W2J-ho-jhb"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="centerX" secondItem="jDx-1a-rik" secondAttribute="centerX" id="Zj5-be-4mO"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leadingMargin" constant="-18" id="fel-20-syf"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerY" secondItem="W3T-Jz-cHu" secondAttribute="centerY" id="gdc-yd-oc6"/>
                                     <constraint firstAttribute="trailing" secondItem="fSt-97-rjM" secondAttribute="trailing" constant="-10" id="hAe-kS-aWl"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerY" secondItem="jDx-1a-rik" secondAttribute="centerY" id="hko-xa-ESj"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="VOK-WX-hZn" secondAttribute="bottom" constant="1" id="imy-En-le0"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="width" secondItem="W3T-Jz-cHu" secondAttribute="width" constant="20" id="lUL-4c-mVv"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="trailing" secondItem="7aa-Sz-kOk" secondAttribute="trailing" id="lvc-LD-3rN"/>
+                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="centerX" secondItem="7aa-Sz-kOk" secondAttribute="centerX" id="nJZ-ic-RGJ"/>
+                                    <constraint firstItem="jDx-1a-rik" firstAttribute="centerY" secondItem="VOK-WX-hZn" secondAttribute="centerY" id="nM3-JA-QLo"/>
+                                    <constraint firstItem="jDx-1a-rik" firstAttribute="leading" secondItem="W3T-Jz-cHu" secondAttribute="leading" id="nkq-qG-zRX"/>
                                     <constraint firstItem="7aa-Sz-kOk" firstAttribute="top" secondItem="W3T-Jz-cHu" secondAttribute="top" id="oZW-tq-jdo"/>
                                     <constraint firstAttribute="trailing" secondItem="7aa-Sz-kOk" secondAttribute="trailing" constant="-10" id="vRS-2z-eTP"/>
                                     <constraint firstItem="fSt-97-rjM" firstAttribute="leading" secondItem="7aa-Sz-kOk" secondAttribute="leading" id="whC-2h-fdf"/>
-                                    <constraint firstItem="VOK-WX-hZn" firstAttribute="top" secondItem="7aa-Sz-kOk" secondAttribute="bottom" constant="3" id="z6K-Bj-WRf"/>
+                                    <constraint firstItem="fSt-97-rjM" firstAttribute="top" secondItem="VOK-WX-hZn" secondAttribute="bottom" constant="1" id="xVD-iW-zCz"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="IMX-tC-Ej5"/>
                                         <exclude reference="vRS-2z-eTP"/>
+                                        <exclude reference="ANb-ux-7Ls"/>
+                                        <exclude reference="Bat-b8-hFP"/>
+                                        <exclude reference="LVd-hY-9eM"/>
+                                        <exclude reference="gdc-yd-oc6"/>
+                                        <exclude reference="hko-xa-ESj"/>
+                                        <exclude reference="nJZ-ic-RGJ"/>
+                                        <exclude reference="RLl-lO-QTC"/>
                                         <exclude reference="W2J-ho-jhb"/>
                                         <exclude reference="fel-20-syf"/>
                                         <exclude reference="hAe-kS-aWl"/>
                                         <exclude reference="lUL-4c-mVv"/>
+                                        <exclude reference="xVD-iW-zCz"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -131,6 +163,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1632602" width="350" height="122"/>
         <image name="maverickBadge19D5212404388D137F4Baa3Bf1727C68" width="144" height="121"/>
     </resources>
 </document>
