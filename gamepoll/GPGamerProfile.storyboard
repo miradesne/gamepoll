@@ -65,7 +65,7 @@
                                             <constraint firstItem="K3j-he-46i" firstAttribute="top" secondItem="7aa-Sz-kOk" secondAttribute="top" id="jIk-cv-315"/>
                                         </constraints>
                                     </view>
-                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultGameProfile" translatesAutoresizingMaskIntoConstraints="NO" id="VOK-WX-hZn">
+                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="maverickBadge19D5212404388D137F4Baa3Bf1727C68" translatesAutoresizingMaskIntoConstraints="NO" id="VOK-WX-hZn">
                                         <rect key="frame" x="0.0" y="67" width="580" height="174"/>
                                     </imageView>
                                 </subviews>
@@ -121,6 +121,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="parentScrollView" destination="W3T-Jz-cHu" id="8RX-Dh-V3O"/>
                         <outlet property="radarChartView" destination="fSt-97-rjM" id="UT0-ij-bZ5"/>
                     </connections>
                 </viewController>
@@ -130,6 +131,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultGameProfile" width="425" height="542"/>
+        <image name="maverickBadge19D5212404388D137F4Baa3Bf1727C68" width="144" height="121"/>
     </resources>
 </document>

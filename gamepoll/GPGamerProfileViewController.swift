@@ -12,6 +12,7 @@ import Charts
 class GPGamerProfileViewController: UIViewController {
     var traits: [String]!
     
+    @IBOutlet weak var parentScrollView: UIScrollView!
     
     @IBOutlet weak var radarChartView: RadarChartView!
     @IBAction func dismissSelf(sender: UIButton) {
@@ -20,6 +21,10 @@ class GPGamerProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //round up scoll view corners
+        parentScrollView.layer.cornerRadius = 10
+        parentScrollView.layer.masksToBounds = true
+        
         radarChartView.noDataText = "no data"
         //offscreen
         radarChartView.setDescriptionTextPosition(x: 1000, y: 1000)
