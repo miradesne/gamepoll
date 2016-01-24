@@ -335,7 +335,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="homeFeedsTableView" destination="4xR-Ct-lC7" id="vCO-x8-Vtu"/>
-                        <segue destination="WwL-tf-RWF" kind="show" id="NR7-bL-ZCJ"/>
+                        <segue destination="WwL-tf-RWF" kind="show" identifier="showGamerProfile" id="aPh-Eb-qI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
