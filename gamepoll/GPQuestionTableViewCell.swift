@@ -66,17 +66,20 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         self.contentView.backgroundColor = UIColor.clearColor()
         // Initialization code
         self.contentView.layer.masksToBounds = false
-        self.contentView.layer.shadowColor = UIColor.grayColor().CGColor
-        self.contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.contentView.layer.shadowColor = UIColor.blackColor().CGColor
+        self.contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.contentView.layer.shadowOpacity = 1
-        self.contentView.layer.shadowRadius = 1
+        self.contentView.layer.shadowRadius = 10
         self.innerView.layer.cornerRadius = 8
+        self.innerView.layer.masksToBounds = true
+        self.innerView.backgroundColor = UIColor.gmpQuestionCardGreyColor()
         if (self.backgroundImageView == nil) || (self.backgroundImageView.image == nil) {
             self.questionLabel.textColor = UIColor.gmpDarkTextColor()
         } else {
             self.questionLabel.textColor = UIColor.gmpWhiteTextColor()
         }
         self.questionLabel.font = UIFont.init(name: "SanFranciscoDisplay-Thin", size: 20.0)
+       
     }
     
     func extraSetup(data:Dictionary<String, AnyObject?>) {
