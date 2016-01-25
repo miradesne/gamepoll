@@ -36,6 +36,10 @@ class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
                             questionData[Constants.QUESTION_CHOICES] = object.valueForKey(Constants.QUESTION_CHOICES)
                         }
                         
+                        if (object.valueForKey(Constants.QUESTION_IMAGE_URL) != nil) {
+                            questionData[Constants.QUESTION_IMAGE_URL] = object.valueForKey(Constants.QUESTION_IMAGE_URL)
+                        }
+                        
                         self.dataArray?.append(questionData)
                     }
                     self.tableview?.reloadData()

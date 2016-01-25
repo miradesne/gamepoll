@@ -94,7 +94,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             print("data is missing question! failed.")
             return
         }
-        if let imageUrl = data["imageUrl"] as? String {
+        if let imageUrl = data[Constants.QUESTION_IMAGE_URL] as? String {
             request(.GET, imageUrl)
                 .responseData({ dataResponse in
                     guard let imageData = dataResponse.data else {

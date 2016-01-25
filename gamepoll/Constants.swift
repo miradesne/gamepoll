@@ -12,6 +12,7 @@ struct Constants {
     static let QUESTION = "Question"
     static let QUESTION_TYPE = "QuestionType"
     static let QUESTION_CHOICES = "Choices"
+    static let QUESTION_IMAGE_URL = "ImageUrl"
     
     struct Parse {
         static let APPLICATION_ID = "g7e0UmhRuHrLSeEhghy6qz3pMKNLyLRURFpH02te"
