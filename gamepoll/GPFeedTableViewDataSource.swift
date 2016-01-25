@@ -73,7 +73,7 @@ class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     
     func cell(cell:GPQuestionTableViewCell, answeredIndex:Int) {
         if cell.questionType.showAnswer() {
-            cell.showAnswerWithData()
+            cell.showAnswerWithData(cell.answerChoices!)
         } else {
             self.dataArray?.removeAtIndex(answeredIndex)
             self.tableview?.beginUpdates()

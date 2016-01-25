@@ -30,6 +30,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     var questionType: QuestionType!
     var backgroundImageUrl: String?
     var delegate: GPQuestionTableViewCellDelegate?
+    var answerChoices: [String]?
     
     enum QuestionType: Int {
         
@@ -113,11 +114,12 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     }
     
     func setupInitialQuestionUI(data:Dictionary<String, AnyObject?>) {
-        
     }
     
     func setupBinaryPollUI(data:Dictionary<String, AnyObject?>) {
         self.pollResultsView.hidden = true
+        self.answerChoices = ["yes", "no"]
+        
         if let imageUrl = data["imageUrl"] as? String {
             request(.GET, imageUrl)
             .responseData({ dataResponse in
@@ -140,6 +142,9 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         answerTwo .setTitle(answerStrings[1], forState: UIControlState.Normal)
         answerThree .setTitle(answerStrings[2], forState: UIControlState.Normal)
         answerFour .setTitle(answerStrings[3], forState: UIControlState.Normal)
+        
+        answerChoices = data[Constants.QUESTION_CHOICES] as? [String]
+        
         if let imageUrl = data["imageUrl"] as? String {
             request(.GET, imageUrl)
                 .responseData({ dataResponse in
@@ -164,7 +169,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         }
     }
     
-    func showAnswerWithData() {
+    func showAnswerWithData(answerChoices: [NSString]) {
         //TO DO: a graph with data in it.
         if self.questionType.showAnswer() {
             self.pollResultsView.hidden = false
@@ -201,8 +206,14 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             
             var dataEntries: [ChartDataEntry] = []
             
-            let dataPoints = ["no", "yes"]
-            let values = [20.0, 15.0]
+            let dataPoints = answerChoices
+            var values = [Double]()
+            
+            if (answerChoices.count > 2) {
+                values = [20.0, 15.0, 7.0, 1.0]
+            } else {
+                values = [20.0, 15.0]
+            }
             
             for i in 0..<dataPoints.count {
                 let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
