@@ -64,7 +64,11 @@ class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 250
+        if let questionType = GPQuestionTableViewCell.QuestionType(rawValue: self.dataArray?[indexPath.row][Constants.QUESTION_TYPE] as! Int) {
+            return questionType.cellHeight()
+        } else {
+            return 250
+        }
     }
     
     func cell(cell:GPQuestionTableViewCell, answeredIndex:Int) {

@@ -55,6 +55,17 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
                 return "GPMultipleChoiceTableViewCell"
             }
         }
+        
+        func cellHeight() -> CGFloat {
+            switch self {
+            case .InitialQuestion:
+                return 266.0
+            case .BinaryPoll:
+                return 266.0
+            case .MultipleChoice:
+                return 336.0
+            }
+        }
     }
     
     override func awakeFromNib() {
@@ -116,7 +127,6 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
                 }
                 self.backgroundImageView.image = UIImage(data: imageData)
             })
-            
         }
     }
     
