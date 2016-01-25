@@ -26,6 +26,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     @IBOutlet weak var answerTwo: GPAnswerButton!
     @IBOutlet weak var answerThree: GPAnswerButton!
     @IBOutlet weak var answerFour: GPAnswerButton!
+    @IBOutlet weak var initialQuestionImageViewHeightConstraint: NSLayoutConstraint!
     
     var questionType: QuestionType!
     var backgroundImageUrl: String?
@@ -85,19 +86,23 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         self.innerView.layer.cornerRadius = 8
         self.innerView.layer.masksToBounds = true
         self.innerView.backgroundColor = UIColor.gmpQuestionCardGreyColor()
-        if (self.backgroundImageView == nil) || (self.backgroundImageView.image == nil) {
-            self.questionLabel.textColor = UIColor.gmpDarkTextColor()
-        } else {
-            self.questionLabel.textColor = UIColor.gmpWhiteTextColor()
-        }
         self.questionLabel.font = UIFont.init(name: "SanFranciscoDisplay-Thin", size: 20.0)
-       
     }
     
     func extraSetup(data:Dictionary<String, AnyObject?>) {
         guard let questionString = data["Question"] as? String else {
             print("data is missing question! failed.")
             return
+        }
+        if let imageUrl = data["imageUrl"] as? String {
+            request(.GET, imageUrl)
+                .responseData({ dataResponse in
+                    guard let imageData = dataResponse.data else {
+                        print("error! data is nil!")
+                        return
+                    }
+                    self.backgroundImageView.image = UIImage(data: imageData)
+                })
         }
         self.questionLabel.text = questionString
         switch self.questionType! {
@@ -114,22 +119,14 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     }
     
     func setupInitialQuestionUI(data:Dictionary<String, AnyObject?>) {
+        self.initialQuestionImageViewHeightConstraint.constant = (self.backgroundImageView.image != nil) ? 122 : 0
+        self.setNeedsLayout()
     }
     
     func setupBinaryPollUI(data:Dictionary<String, AnyObject?>) {
         self.pollResultsView.hidden = true
         self.answerChoices = ["yes", "no"]
-        
-        if let imageUrl = data["imageUrl"] as? String {
-            request(.GET, imageUrl)
-            .responseData({ dataResponse in
-                guard let imageData = dataResponse.data else {
-                        print("error! data is nil!")
-                        return 
-                }
-                self.backgroundImageView.image = UIImage(data: imageData)
-            })
-        }
+        self.setQuestionColorBasedOnImage()
     }
     
     func setupMultipleChoiceUI(data:Dictionary<String, AnyObject?>) {
@@ -142,20 +139,13 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         answerTwo .setTitle(answerStrings[1], forState: UIControlState.Normal)
         answerThree .setTitle(answerStrings[2], forState: UIControlState.Normal)
         answerFour .setTitle(answerStrings[3], forState: UIControlState.Normal)
-        
+
         answerChoices = data[Constants.QUESTION_CHOICES] as? [String]
-        
-        if let imageUrl = data["imageUrl"] as? String {
-            request(.GET, imageUrl)
-                .responseData({ dataResponse in
-                    guard let imageData = dataResponse.data else {
-                        print("error! data is nil!")
-                        return
-                    }
-                    self.backgroundImageView.image = UIImage(data: imageData)
-                })
-            
-        }
+        self.setQuestionColorBasedOnImage()
+    }
+    
+    func setQuestionColorBasedOnImage() {
+        self.questionLabel.textColor = self.backgroundImageView.image != nil ? UIColor.gmpWhiteTextColor() : UIColor.gmpDarkTextColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
