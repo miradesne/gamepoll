@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, GPQuestionTableViewCellDelegate {
     
@@ -18,9 +19,32 @@ class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         self.tableview = tableView
         self.tableview?.delegate = self
         self.tableview?.dataSource = self
-        self.dataArray = [["QuestionType" : GPQuestionTableViewCell.QuestionType.InitialQuestion.rawValue, "Question" : "Have you played The Last Of Us?"],
-            ["QuestionType" : GPQuestionTableViewCell.QuestionType.BinaryPoll.rawValue, "Question" : "Do you think The Last Of Us has a good story?"],
-            ["QuestionType" : GPQuestionTableViewCell.QuestionType.MultipleChoice.rawValue, "Question" : "What's your favorite thing in The Last Of Us?", "Choices" : ["Graphics",	"Story",	"Gameplay",	"Sound"]]]
+        self.dataArray = []
+
+        // Get Questions: default is 100
+        let query = PFQuery(className:Constants.QUESTION)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        var questionData = [Constants.QUESTION_TYPE: object.valueForKey(Constants.QUESTION_TYPE)?.integerValue,
+                            Constants.QUESTION: object.valueForKey(Constants.QUESTION)]
+                        
+                        if (object.valueForKey(Constants.QUESTION_TYPE)?.integerValue == 2) {
+                            questionData[Constants.QUESTION_CHOICES] = object.valueForKey(Constants.QUESTION_CHOICES)
+                        }
+                        
+                        self.dataArray?.append(questionData)
+                    }
+                    self.tableview?.reloadData()
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +55,7 @@ class GPFeedTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDel
         if indexPath.row > self.dataArray?.count {
             return UITableViewCell()
         }
-        let sampleQuestionType = GPQuestionTableViewCell.QuestionType(rawValue: self.dataArray?[indexPath.row]["QuestionType"] as! Int)
+        let sampleQuestionType = GPQuestionTableViewCell.QuestionType(rawValue: self.dataArray?[indexPath.row][Constants.QUESTION_TYPE] as! Int)
         let cell:GPQuestionTableViewCell = tableView.dequeueReusableCellWithIdentifier(sampleQuestionType!.reuseIdentifier()) as! GPQuestionTableViewCell
         cell.questionType = sampleQuestionType
         cell.extraSetup((self.dataArray?[indexPath.row])!)
