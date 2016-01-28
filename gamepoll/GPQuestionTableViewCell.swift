@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Bolts
 import Alamofire
 import ReactiveCocoa
 import UIColor_FlatColors
@@ -17,7 +18,8 @@ protocol GPQuestionTableViewCellDelegate {
 }
 
 class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
-
+    
+    // MARK: IBOutlets
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var pollResultsView: PieChartView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -25,6 +27,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     @IBOutlet var answerButtons: [GPAnswerButton]!
     @IBOutlet weak var initialQuestionImageViewHeightConstraint: NSLayoutConstraint!
     
+    // MARK: properties and enums
     var questionType: QuestionType!
     var backgroundImageUrl: String?
     var delegate: GPQuestionTableViewCellDelegate?
@@ -67,10 +70,12 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         }
     }
     
+    // MARK: UITableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
+    // MARK: GPTableViewCell
     override func setupUI() {
         self.backgroundColor = UIColor.clearColor()
         self.contentView.backgroundColor = UIColor.clearColor()
@@ -86,11 +91,13 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         self.questionLabel.font = UIFont.init(name: "SanFranciscoDisplay-Thin", size: 20.0)
     }
     
+    // MARK: GPQuestionTableViewCell
     func extraSetup(data:Dictionary<String, AnyObject?>) {
         guard let questionString = data["Question"] as? String else {
             print("data is missing question! failed.")
             return
         }
+        // TODO: use background thread to fetch images.
         if let imageUrl = data[Constants.QUESTION_IMAGE_URL] as? String {
             request(.GET, imageUrl)
                 .responseData({ dataResponse in
@@ -165,17 +172,6 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             self.backgroundImageView.layer.mask = nil
         }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
-    @IBAction func answerButtonTapped(sender: GPAnswerButton) {
-        if let delegate = self.delegate {
-            delegate.cell(self, answeredIndex: self.answerButtons.indexOf(sender)!)
-        }
-    }
     
     func showAnswerWithData(answerChoices: [NSString]) {
         //TO DO: a graph with data in it.
@@ -248,6 +244,13 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             l.enabled = false
             
             self.pollResultsView.animate(xAxisDuration: 0.5)
+        }
+    }
+    
+    // MARK: IBActions
+    @IBAction func answerButtonTapped(sender: GPAnswerButton) {
+        if let delegate = self.delegate {
+            delegate.cell(self, answeredIndex: self.answerButtons.indexOf(sender)!)
         }
     }
 }
