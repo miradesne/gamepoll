@@ -22,10 +22,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     @IBOutlet weak var pollResultsView: PieChartView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answerOne: GPAnswerButton!
-    @IBOutlet weak var answerTwo: GPAnswerButton!
-    @IBOutlet weak var answerThree: GPAnswerButton!
-    @IBOutlet weak var answerFour: GPAnswerButton!
+    @IBOutlet var answerButtons: [GPAnswerButton]!
     @IBOutlet weak var initialQuestionImageViewHeightConstraint: NSLayoutConstraint!
     
     var questionType: QuestionType!
@@ -127,6 +124,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
         self.pollResultsView.hidden = true
         self.answerChoices = ["yes", "no"]
         self.setQuestionColorBasedOnImage()
+        self.setUpImageViewGradient()
     }
     
     func setupMultipleChoiceUI(data:Dictionary<String, AnyObject?>) {
@@ -135,27 +133,47 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
             print("error! no choices!!")
             return
         }
-        answerOne .setTitle(answerStrings[0], forState: UIControlState.Normal)
-        answerTwo .setTitle(answerStrings[1], forState: UIControlState.Normal)
-        answerThree .setTitle(answerStrings[2], forState: UIControlState.Normal)
-        answerFour .setTitle(answerStrings[3], forState: UIControlState.Normal)
-
-        answerChoices = data[Constants.QUESTION_CHOICES] as? [String]
+        guard let answerButtons = self.answerButtons else {
+            print("error! answerButtons don't exist!")
+            return
+        }
+        guard answerStrings.count == answerButtons.count else {
+            print("error! number of choices don't match with the buttons!")
+            return
+        }
+        for (index, button) in answerButtons.enumerate() {
+            button.setTitle(answerStrings[index], forState: UIControlState.Normal)
+        }
+        self.answerChoices = data[Constants.QUESTION_CHOICES] as? [String]
         self.setQuestionColorBasedOnImage()
+        self.setUpImageViewGradient()
     }
     
     func setQuestionColorBasedOnImage() {
         self.questionLabel.textColor = self.backgroundImageView.image != nil ? UIColor.gmpWhiteTextColor() : UIColor.gmpDarkTextColor()
+    }
+    
+    func setUpImageViewGradient() {
+        if self.backgroundImageView.image != nil {
+            if self.backgroundImageView.layer.sublayers?.count < 1 {
+                let gradientLayer: CAGradientLayer = CAGradientLayer()
+                gradientLayer.frame = self.backgroundImageView.bounds
+                gradientLayer.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor]
+                self.backgroundImageView.layer.insertSublayer(gradientLayer, atIndex: 0)
+            }
+        } else {
+            self.backgroundImageView.layer.mask = nil
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
-    @IBAction func AnswerOne(sender: AnyObject) {
+    
+    @IBAction func answerButtonTapped(sender: GPAnswerButton) {
         if let delegate = self.delegate {
-            delegate.cell(self, answeredIndex: 0)
+            delegate.cell(self, answeredIndex: self.answerButtons.indexOf(sender)!)
         }
     }
     

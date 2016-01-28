@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vpj-DN-s3D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vpj-DN-s3D">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -73,13 +73,13 @@
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H9E-u0-8tl" secondAttribute="trailing" constant="20" id="yr3-5t-2QA"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1632602" translatesAutoresizingMaskIntoConstraints="NO" id="2AE-2S-1ab">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1632602" translatesAutoresizingMaskIntoConstraints="NO" id="2AE-2S-1ab">
                                                             <rect key="frame" x="0.0" y="56" width="560" height="122"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="122" id="wYn-Qz-mjf"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O88-hd-O5f" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O88-hd-O5f" userLabel="2" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="287" y="191" width="260" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="Ncp-te-uNW"/>
@@ -95,8 +95,11 @@
                                                                     <exclude reference="uYH-ys-FmQ"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="answerButtonTapped:" destination="sx5-Tg-trT" eventType="touchUpInside" id="pZp-HP-yiH"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zct-mr-9Uv" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zct-mr-9Uv" userLabel="1" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="13" y="191" width="261" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="mz2-K4-a02"/>
@@ -111,7 +114,7 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <action selector="AnswerOne:" destination="sx5-Tg-trT" eventType="touchUpInside" id="iSh-st-chW"/>
+                                                                <action selector="answerButtonTapped:" destination="sx5-Tg-trT" eventType="touchUpInside" id="iiF-YJ-UU8"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -143,12 +146,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="answerOne" destination="Zct-mr-9Uv" id="66H-u1-2jn"/>
-                                            <outlet property="answerTwo" destination="O88-hd-O5f" id="YAw-00-NCo"/>
                                             <outlet property="backgroundImageView" destination="2AE-2S-1ab" id="zwW-V6-hnG"/>
                                             <outlet property="initialQuestionImageViewHeightConstraint" destination="wYn-Qz-mjf" id="m66-bj-cP4"/>
                                             <outlet property="innerView" destination="Vhr-gp-nVl" id="vkx-vB-gtx"/>
                                             <outlet property="questionLabel" destination="H9E-u0-8tl" id="aJT-rY-3hM"/>
+                                            <outletCollection property="answerButtons" destination="O88-hd-O5f" collectionClass="NSMutableArray" id="jrB-6V-5Wk"/>
+                                            <outletCollection property="answerButtons" destination="Zct-mr-9Uv" collectionClass="NSMutableArray" id="D1v-fT-mNq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GPMultipleChoiceTableViewCell" rowHeight="336" id="VTu-UI-UsJ" customClass="GPQuestionTableViewCell" customModule="gamepoll" customModuleProvider="target">
@@ -164,7 +167,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsz-KY-00E" userLabel="Question View">
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="77"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-7U-mkJ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-7U-mkJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="77"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your favorite thing in The Last Of Us?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyH-vl-3wh">
@@ -191,7 +194,7 @@
                                                                 </mask>
                                                             </variation>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIa-xZ-94d" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIa-xZ-94d" userLabel="1" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="77" width="524" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="9rg-c9-VnM"/>
@@ -207,8 +210,11 @@
                                                                     <exclude reference="BsN-9J-fUb"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="answerButtonTapped:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="nNC-9E-QEf"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgL-Pw-udn" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgL-Pw-udn" userLabel="2" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="137" width="524" height="49"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="fvV-Ea-fHW"/>
@@ -223,10 +229,10 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <action selector="AnswerOne:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="jnl-k8-dlx"/>
+                                                                <action selector="answerButtonTapped:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="jsl-zJ-gl0"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-IV-crM" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-IV-crM" userLabel="3" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="196" width="524" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="Fz9-jK-kgs"/>
@@ -241,10 +247,10 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <action selector="AnswerOne:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="FnB-BN-Cgp"/>
+                                                                <action selector="answerButtonTapped:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="HKF-9x-qby"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0y-ZY-oCC" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0y-ZY-oCC" userLabel="4" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="256" width="524" height="49"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="sgf-9f-TEj"/>
@@ -260,6 +266,9 @@
                                                                     <exclude reference="y49-5O-sNH"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="answerButtonTapped:" destination="VTu-UI-UsJ" eventType="touchUpInside" id="ydz-6M-b7S"/>
+                                                            </connections>
                                                         </button>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-Ro-pxc" customClass="PieChartView" customModule="Charts">
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="320"/>
@@ -319,14 +328,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="answerFour" destination="b0y-ZY-oCC" id="cRo-0D-62i"/>
-                                            <outlet property="answerOne" destination="vIa-xZ-94d" id="Z7F-r5-wbe"/>
-                                            <outlet property="answerThree" destination="Do4-IV-crM" id="5PP-mS-a6D"/>
-                                            <outlet property="answerTwo" destination="HgL-Pw-udn" id="cCv-zr-3su"/>
                                             <outlet property="backgroundImageView" destination="1bW-7U-mkJ" id="Att-3W-hJy"/>
                                             <outlet property="innerView" destination="2zz-qn-27c" id="XHV-2f-yaG"/>
                                             <outlet property="pollResultsView" destination="fD5-Ro-pxc" id="khb-j5-dzT"/>
                                             <outlet property="questionLabel" destination="iyH-vl-3wh" id="yD0-Nm-ZbX"/>
+                                            <outletCollection property="answerButtons" destination="vIa-xZ-94d" collectionClass="NSMutableArray" id="Lll-55-fQ5"/>
+                                            <outletCollection property="answerButtons" destination="HgL-Pw-udn" collectionClass="NSMutableArray" id="WLP-y7-CkA"/>
+                                            <outletCollection property="answerButtons" destination="Do4-IV-crM" collectionClass="NSMutableArray" id="OR7-RP-niO"/>
+                                            <outletCollection property="answerButtons" destination="b0y-ZY-oCC" collectionClass="NSMutableArray" id="yzW-Ua-LqP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GPBinaryPollTableViewCell" rowHeight="266" id="qq9-3J-bhn" customClass="GPQuestionTableViewCell" customModule="gamepoll" customModuleProvider="target">
@@ -342,11 +351,11 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAQ-GJ-iuE" userLabel="questionView">
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="178"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1632602" translatesAutoresizingMaskIntoConstraints="NO" id="fwl-mS-dsJ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1632602" translatesAutoresizingMaskIntoConstraints="NO" id="fwl-mS-dsJ">
                                                                     <rect key="frame" x="0.0" y="16" width="560" height="162"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think Battlefield 4 has good graphics?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqq-Yc-XmO">
-                                                                    <rect key="frame" x="99" y="79" width="362" height="21"/>
+                                                                    <rect key="frame" x="99" y="89" width="362" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -361,7 +370,7 @@
                                                                 <constraint firstItem="nqq-Yc-XmO" firstAttribute="leading" secondItem="aAQ-GJ-iuE" secondAttribute="leading" constant="111" id="AxI-Gv-lRc"/>
                                                                 <constraint firstItem="nqq-Yc-XmO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAQ-GJ-iuE" secondAttribute="leading" constant="20" id="Q06-EJ-oLw"/>
                                                                 <constraint firstAttribute="bottom" secondItem="fwl-mS-dsJ" secondAttribute="bottom" id="drR-Ye-jgb"/>
-                                                                <constraint firstItem="nqq-Yc-XmO" firstAttribute="centerY" secondItem="aAQ-GJ-iuE" secondAttribute="centerY" id="jus-6l-acQ"/>
+                                                                <constraint firstItem="nqq-Yc-XmO" firstAttribute="centerY" secondItem="aAQ-GJ-iuE" secondAttribute="centerY" constant="10" id="jus-6l-acQ"/>
                                                                 <constraint firstItem="nqq-Yc-XmO" firstAttribute="centerX" secondItem="aAQ-GJ-iuE" secondAttribute="centerX" id="n8n-pm-qym"/>
                                                                 <constraint firstAttribute="trailing" secondItem="nqq-Yc-XmO" secondAttribute="trailing" constant="111" id="vLf-h1-XBP"/>
                                                             </constraints>
@@ -372,8 +381,9 @@
                                                                 </mask>
                                                             </variation>
                                                         </view>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYK-So-qaa" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYK-So-qaa" userLabel="1" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="14" y="192" width="257" height="46"/>
+                                                            <color key="backgroundColor" red="0.28627452254295349" green="0.9529411792755127" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="Iov-sR-Xri"/>
                                                                 <constraint firstAttribute="height" constant="40" id="l8y-w5-BJc"/>
@@ -387,15 +397,19 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <action selector="AnswerOne:" destination="qq9-3J-bhn" eventType="touchUpInside" id="2mm-E3-VOB"/>
+                                                                <action selector="answerButtonTapped:" destination="qq9-3J-bhn" eventType="touchUpInside" id="4Yo-Rw-FWb"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgR-EQ-BsG" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgR-EQ-BsG" userLabel="2" customClass="GPAnswerButton" customModule="gamepoll" customModuleProvider="target">
                                                             <rect key="frame" x="289" y="192" width="257" height="46"/>
+                                                            <color key="backgroundColor" red="0.99607843160629272" green="0.15686275064945221" blue="0.31764706969261169" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <state key="normal" title="no">
                                                                 <color key="titleShadowColor" red="0.094117648900000003" green="0.61960786580000005" blue="0.77647060160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="answerButtonTapped:" destination="qq9-3J-bhn" eventType="touchUpInside" id="jm8-3L-y8E"/>
+                                                            </connections>
                                                         </button>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI0-jj-Ikh" customClass="PieChartView" customModule="Charts">
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="250"/>
@@ -439,12 +453,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="answerOne" destination="yYK-So-qaa" id="RA9-ja-ewI"/>
-                                            <outlet property="answerTwo" destination="lgR-EQ-BsG" id="f4h-fy-6JI"/>
                                             <outlet property="backgroundImageView" destination="fwl-mS-dsJ" id="AqG-3N-cng"/>
                                             <outlet property="innerView" destination="gcb-D5-ioc" id="a9P-Bq-oe6"/>
                                             <outlet property="pollResultsView" destination="lI0-jj-Ikh" id="97e-hp-Qwz"/>
                                             <outlet property="questionLabel" destination="nqq-Yc-XmO" id="m6y-57-A2d"/>
+                                            <outletCollection property="answerButtons" destination="yYK-So-qaa" collectionClass="NSMutableArray" id="eSo-sI-xHU"/>
+                                            <outletCollection property="answerButtons" destination="lgR-EQ-BsG" collectionClass="NSMutableArray" id="dZf-0K-mcb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
