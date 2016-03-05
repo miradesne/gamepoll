@@ -12,6 +12,7 @@ import Bolts
 import Alamofire
 import ReactiveCocoa
 import UIColor_FlatColors
+import Parse
 
 protocol GPQuestionTableViewCellDelegate {
     func cell(cell:GPQuestionTableViewCell, answeredIndex:Int)
@@ -32,6 +33,7 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     var backgroundImageUrl: String?
     var delegate: GPQuestionTableViewCellDelegate?
     var answerChoices: [String]?
+    var questionId = ""
     
     enum QuestionType: Int {
         
@@ -94,9 +96,16 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     // MARK: GPQuestionTableViewCell
     func extraSetup(data:Dictionary<String, AnyObject?>) {
         guard let questionString = data["Question"] as? String else {
-            print("data is missing question! failed.")
+            NSLog("\(data) is missing question! failed.")
             return
         }
+        guard let questionId = data["objectId"] as? String else {
+            NSLog("\(data) is missing objectId")
+            return
+        }
+        
+        self.questionId = questionId
+        
         // TODO: use background thread to fetch images.
         if let imageUrl = data[Constants.QUESTION_IMAGE_URL] as? String {
             request(.GET, imageUrl)
@@ -251,6 +260,59 @@ class GPQuestionTableViewCell: GPTableViewCell, ChartViewDelegate {
     @IBAction func answerButtonTapped(sender: GPAnswerButton) {
         if let delegate = self.delegate {
             delegate.cell(self, answeredIndex: self.answerButtons.indexOf(sender)!)
+            //Increment poll count
+            guard let text = sender.titleLabel?.text else {
+                return
+            }
+            
+            let query = PFQuery(className:"Question")
+            query.whereKey("objectId", equalTo:self.questionId)
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    guard let objects = objects as [PFObject]? else {
+                        return
+                    }
+
+                    if (objects.count == 0) {
+                        let questionScore = PFObject(className:"Question")
+                        if text == "yes" {
+                            questionScore["Yes"] = 1
+                            questionScore["No"] = 0
+                        } else {
+                            questionScore["Yes"] = 0
+                            questionScore["No"] = 1
+                        }
+                        
+                        questionScore.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError?) -> Void in
+                            if (success) {
+                                // The object has been saved.
+                            } else {
+                                // There was a problem, check error.description
+                            }
+                        }
+                    } else { //question already exists, increment
+                        let questionScore = objects[0]
+                        if text == "yes" {
+                            questionScore.incrementKey("Yes")
+                        } else {
+                            questionScore.incrementKey("No")
+                        }
+
+                        questionScore.saveInBackground()
+                    }
+                } else {
+                    guard let nsError = error as NSError? else {
+                        NSLog("could not unwrap \(error) as NSError")
+                        return
+                    }
+                    
+                    NSLog("Error: \(nsError) \(nsError.userInfo)")
+                    return
+                }
+            }
         }
     }
 }
